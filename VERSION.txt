@@ -1,3 +1,4 @@
 0.0.0refs/tags/v1.0.0
 refs/tags/v1.0.2
 refs/tags/v1.0.3
+refs/tags/v1.0.4
