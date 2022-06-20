@@ -1,12 +1,1 @@
-0.0.0refs/tags/v1.0.0
-refs/tags/v1.0.2
-refs/tags/v1.0.3
-refs/tags/v1.0.4
-refs/tags/v1.0.5
-refs/tags/v1.0.6
-refs/tags/v1.0.7
-refs/tags/v1.0.8
-refs/tags/v1.0.9
-refs/tags/v1.0.10
-refs/tags/v1.0.11
-refs/tags/v1.0.13
+refs/tags/1.1.1
