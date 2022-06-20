@@ -47,7 +47,7 @@ jobs:
     
     steps:
     
-    - ls
+    - run: ls
     
     - name: Get version
       id: version_number
