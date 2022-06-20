@@ -32,7 +32,5 @@ jobs:
     - run: |
         git fetch --all
         git checkout main
-        git pull origin development --allow-unrelated-histories
         git checkout development
-        git pull origin main --allow-unrelated-histories
         git merge -X theirs main
