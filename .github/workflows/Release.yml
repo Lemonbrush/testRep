@@ -46,11 +46,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    
+    - ls
+    
     - name: Get version
       id: version_number
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./VERSION
+        path: VERSION.txt
     
     - name: Create Release
       id: create_release
