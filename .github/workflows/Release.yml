@@ -25,7 +25,6 @@ jobs:
           
   MergeIntoMain:
     needs: UpdateVersionFile
-    if: ${{ contains(github.ref, 'main') }}
     runs-on: ubuntu-latest
       
     steps:
