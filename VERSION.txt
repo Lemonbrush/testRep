@@ -4,3 +4,4 @@ refs/tags/v1.0.3
 refs/tags/v1.0.4
 refs/tags/v1.0.5
 refs/tags/v1.0.6
+refs/tags/v1.0.7
