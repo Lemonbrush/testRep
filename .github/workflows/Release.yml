@@ -15,7 +15,7 @@ jobs:
         fetch-depth: 0
     
     - name: Update version file
-      run: echo ${GITHUB_REF/refs\/tags\//} > VERSION.txt
+      run: echo ${{ GITHUB_REF/refs\/tags\// }} > VERSION.txt
 
     - name: Commit version file
       uses: test-room-7/action-update-file@v1
@@ -52,8 +52,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${GITHUB_REF/refs\/tags\//}
-        release_name: Release ${GITHUB_REF/refs\/tags\//}
+        tag_name: ${{ GITHUB_REF/refs\/tags\// }}
+        release_name: Release ${{ GITHUB_REF/refs\/tags\// }}
         body: ${{ github.event.head_commit.message }}
         draft: false
         prerelease: false
