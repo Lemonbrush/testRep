@@ -29,10 +29,12 @@ jobs:
       
     steps:
     - uses: actions/checkout@v2
-      fetch-depth: 0
+      with:
+        fetch-depth: 0
       
     - run: |
         git fetch --all
-        git checkout main
         git checkout development
-        git merge -X theirs main
+        git checkout main
+        git merge development -X theirs
+        git push origin main
