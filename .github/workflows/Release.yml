@@ -42,15 +42,18 @@ jobs:
         git push origin main
 
   CreateGithubRelease:
-  
-  - name: Create Release
-    id: create_release
-    uses: actions/create-release@v1
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    with:
-      tag_name: ${GITHUB_REF/refs\/tags\//}
-      release_name: Release ${GITHUB_REF/refs\/tags\//}
-      body: ${{ github.event.head_commit.message }}
-      draft: false
-      prerelease: false
+    needs: MergeIntoMain
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${GITHUB_REF/refs\/tags\//}
+        release_name: Release ${GITHUB_REF/refs\/tags\//}
+        body: ${{ github.event.head_commit.message }}
+        draft: false
+        prerelease: false
