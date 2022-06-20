@@ -46,6 +46,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     
     - run: ls
     
@@ -53,7 +57,7 @@ jobs:
       id: version_number
       uses: juliangruber/read-file-action@v1
       with:
-        path: VERSION.txt
+        path: ./VERSION.txt
     
     - name: Create Release
       id: create_release
