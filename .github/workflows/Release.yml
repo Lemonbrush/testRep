@@ -32,4 +32,4 @@ jobs:
     - run: |
         git fetch --all
         git checkout main
-        git merge -X theirs development
+        git merge -X theirs origin development
