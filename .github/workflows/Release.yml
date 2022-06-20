@@ -31,5 +31,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        git checkout development
-        git merge -X ours main
+        git checkout main
+        git merge -X theirs development
