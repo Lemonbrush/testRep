@@ -7,8 +7,8 @@ on:
 
 jobs:
   SayHello:
-  runs-on: ubuntu-latest
-  if: "contains(github.event.head_commit.message, 'version')"
-  steps:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'version')"
+    steps:
   
-  - run: echo "Success"
+    - run: echo "Success"
