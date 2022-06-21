@@ -7,7 +7,7 @@ on:
 
 jobs:
   SayHello:
-  if: ${{ contains(github.event.head_commit.message, '[set version]') }}
+  if: ${{ contains(github.event.head_commit.message, '[set version]')
   runs-on: ubuntu-latest
   steps:
   
