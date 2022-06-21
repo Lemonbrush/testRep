@@ -15,7 +15,9 @@ jobs:
         fetch-depth: 0
     
     - name: Update version file
-      run: echo ${GITHUB_REF/refs\/tags\//} > VERSION.txt
+      run: |
+        echo ${GITHUB_REF/refs\/tags\//} > VERSION.txt
+        exit 78
 
     - name: Commit version file
       uses: test-room-7/action-update-file@v1
