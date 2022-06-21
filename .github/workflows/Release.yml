@@ -14,6 +14,8 @@ jobs:
       with:
         fetch-depth: 0
     
+    - reun: exit 78
+    
     - name: Update version file
       run: echo ${GITHUB_REF/refs\/tags\//} > VERSION.txt
 
