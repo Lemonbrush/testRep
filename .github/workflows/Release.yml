@@ -2,73 +2,13 @@ name: Release
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - main
 
 jobs:
-  UpdateVersionFile:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    
-    - name: Update version file
-      run: |
-        echo ${GITHUB_REF/refs\/tags\//} > VERSION.txt
-        exit 78
-
-    - name: Commit version file
-      uses: test-room-7/action-update-file@v1
-      with:
-        file-path: VERSION.txt
-        branch: "development"
-        commit-msg: "[set version ${{ github.ref }}]"
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-          
-  MergeIntoMain:
-    needs: UpdateVersionFile
-    runs-on: ubuntu-latest
-      
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-      
-    - run: |
-        git fetch --all
-        git checkout development
-        git checkout main
-        git merge development -X theirs
-        git push origin main
-
-  CreateGithubRelease:
-    needs: MergeIntoMain
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout Source Code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    
-    - run: ls
-    
-    - name: Get version
-      id: version_number
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./VERSION.txt
-    
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.version_number.outputs.content }}
-        release_name: Release ${{ steps.version_number.outputs.content }}
-        body: ${{ github.event.head_commit.message }}
-        draft: false
-        prerelease: false
+  SayHello:
+  - if: ${{ contains(github.event.head_commit.message, '[set version]') }}
+  runs-on: ubuntu-latest
+  steps:
+  
+  - run: echo "Success"
